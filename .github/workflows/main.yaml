@@ -31,9 +31,7 @@ jobs:
             -d '{
               "event_type": "deploy",
               "client_payload": {
-                "commit_sha": "${{github.sha}}",
-                "env":"dev",
-                "regions": "tur bhr uae"
+                "commit_sha": "${{github.sha}}"
                 }
               }'
     #   uses: convictional/trigger-workflow-and-wait@v1.6.1
