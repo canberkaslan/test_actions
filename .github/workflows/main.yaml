@@ -17,9 +17,16 @@ jobs:
     needs: build
     steps:
       - name: Dispatch workflow
-        uses: convictional/trigger-workflow-and-wait@v1.6.1
-        with:
-          owner: canberkaslan
-          repo: 'test_actions_cd'
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          workflow_file_name: main.yml
+          run: |
+            curl \
+            -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+             https://api.github.com/repos/canberkaslan/test_actions_cd/actions/workflows/3020658793/disable
+
+    #   uses: convictional/trigger-workflow-and-wait@v1.6.1
+    #   with:
+    #      owner: canberkaslan
+    #      repo: 'test_actions_cd'
+    #      github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    #      workflow_file_name: main.yml
