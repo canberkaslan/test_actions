@@ -24,7 +24,7 @@ jobs:
      #       -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
      #        https://api.github.com/repos/canberkaslan/test_actions_cd/actions/workflows/3020658793/disable
         run: |
-          curl -XPOST -u "${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept:application/vnd.github" -H "Content-Type:application/json" https://api.github.com/repos/canberkaslan/test_actions_cd/main.yml/dispatches --data '{"ref": "main" }'
+          curl -XPOST -u "${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept:application/vnd.github" -H "Content-Type:application/json"  https://api.github.com/repos/canberkaslan/test_actions_cd/contents/.github/workflows/main.yaml/dispatches --data '{"ref": "main" }'
     #   uses: convictional/trigger-workflow-and-wait@v1.6.1
     #   with:
     #      owner: canberkaslan
