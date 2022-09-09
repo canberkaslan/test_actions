@@ -16,13 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      -
       - name: Dispatch submodule_push event
-        uses: mvasigh/dispatch-action@main
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          owner: canberkaslan
           repo: 'test_actions_cd'
-          event_type: submodule_push
-          message: |
-            {
-              "foo": "bar"
-            }
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          workflow_file_name: main.yml
