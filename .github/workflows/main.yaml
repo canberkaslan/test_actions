@@ -20,7 +20,7 @@ jobs:
         uses: mvasigh/dispatch-action@main
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          repo: 'https://github.com/canberkaslan/test_actions_cd.git'
+          repo: 'test_actions_cd'
           event_type: submodule_push
           message: |
             {
