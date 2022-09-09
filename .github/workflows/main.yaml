@@ -16,8 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      -
-      - name: Dispatch submodule_push event
+      - name: Dispatch workflow
         uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
           owner: canberkaslan
