@@ -25,12 +25,17 @@ jobs:
      #        https://api.github.com/repos/canberkaslan/test_actions_cd/actions/workflows/3020658793/disable
         run: |
           curl -X POST \
-           -H "Accept: application/vnd.github.v3+json" \
-           -H "Authorization: token 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 \
-           https://api.github.com/repos/canberkaslan/test_actions_cd/dispatches \
-           -d '{
-             "event_type": "deploy"
-             }'
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token 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" \
+            https://api.github.com/repos/canberkaslan/test_actions_cd/dispatches \
+            -d '{
+              "event_type": "deploy",
+              "client_payload": {
+                "commit_sha": "${{github.sha}}",
+                "env":"dev",
+                "regions": "tur bhr uae"
+                }
+              }'
     #   uses: convictional/trigger-workflow-and-wait@v1.6.1
     #   with:
     #      owner: canberkaslan
